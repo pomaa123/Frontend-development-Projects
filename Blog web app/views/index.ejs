@@ -7,19 +7,23 @@
         <p class="col-md-8 fs-4">Start blogging today and discover stories from creators around the world.</p> 
         <a href="/create-post"><button class="btn btn-primary btn-lg" type="button">Create Blog Post</button> </div> </div></a>
 <div class="container py-4">
+    <% if (locals.content) { %>
+     
     <div class="row align-items-md-stretch"> 
-        <div class="col-md-6"> 
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3"> 
-                <h2>Small Habits, Big Results</h2> 
-                <p>Sometimes we believe that success comes from huge life-changing decisions. In reality, most success is built from small habits repeated consistently over time. Think about waking up 20 minutes earlier each day to read a few pages of a book. At first, it may not seem like much.</p> 
-                <button class="btn btn-outline-secondary" type="button">Read more</button> 
-            </div> 
-        </div>
-        <div class="col-md-6"> 
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3"> 
-                <h2>The Day I Started Coding</h2> 
-                <p>I still remember the first time I wrote a line of code. It was a simple program that printed “Hello World” on the screen. At the time, it felt like magic. Learning to code can be frustrating at first. Errors appear everywhere, and sometimes nothing seems to work. But each mistake teaches something new.</p> 
-                <button class="btn btn-outline-secondary" type="button">Read more</button> </div> </div>
+        <% for( let item of content) { %>
+        
+            <div class="col-md-6 mt-4"> 
+                <div class="h-100 p-5 bg-body-tertiary border rounded-3"> 
+                    <h2><%= item.title %></h2> 
+                    <p><%= item.story %></p> 
+                    <button class="btn btn-outline-secondary" type="button">Read more</button> 
+                </div> 
+            </div>
+
+        <% } %>
+        
     </div>
+    <% } %>
 </div>
+
 <%- include('partials/footer.ejs') %>

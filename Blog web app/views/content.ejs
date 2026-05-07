@@ -1,9 +1,9 @@
 <%- include('partials/header.ejs') %>
 <div class="create container justify-content-center p-4">
     <h1 class="mb-4">Create post</h1>
-    <form>
-  <input name="textTitle" type="text" class="content-input" placeholder="Title" />
-  <textarea name="text" class="content-input" placeholder="Write your story..."></textarea>
+    <form action="/submit" method="post">
+  <input name="title" type="text" class="content-input" placeholder="Title" />
+  <textarea name="content" class="content-input" placeholder="Write your story..."></textarea>
   <input class="content-submit" type="submit" value="SUBMIT" />
 </form>
 </div>
