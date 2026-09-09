@@ -1,0 +1,51 @@
+<%- include('partials/header.ejs') %>
+<!-- <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;"> 
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> 
+        <span class="fs-4">Sort by</span> </a> <hr> 
+        <ul class="nav nav-pills flex-column mb-auto"> 
+            <li class="nav-item"> 
+                <a href="#" class="nav-link active" aria-current="page"> Recent</a> 
+            </li> 
+            <li> 
+                <a href="#" class="nav-link link-body-emphasis"> Rating</a> 
+            </li> 
+            <li> 
+                <a href="#" class="nav-link link-body-emphasis"> title</a> 
+            </li> 
+        </ul> 
+</div> -->
+
+<div class="container" id="front-cover">
+    <img src="/book-collection.png" alt="book collection">
+    <h1 id="title"> Books I've Read</h1>
+</div>
+
+
+<div class="container dropdown pt-3 mb-3">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Recent
+  </button>
+  <ul class="dropdown-menu">
+    <li><button class="dropdown-item" type="button">Rating</button></li>
+    <li><button class="dropdown-item" type="button">Title</button></li>
+  </ul>
+</div>
+
+<% if (locals.content) { %>
+ 
+
+<div class="container">
+    <% for (let item of content) { %>
+    <img src="https://covers.openlibrary.org/b/isbn/<%= item.isbn %>-M.jpg">
+    <a href="/notes/<%= item.id %>/<%= item.title %>"><p class="book-title-author"><%= item.title %> - By <%= item.author %></p></a>
+    <p class="foot-notes">Ratings: <%= item.rating %>/10. Date read: <%= item.date_read %>. <a href="/notes/<%= item.id %>/<%= item.title %>">Read my notes</a></p>
+    <p class="summary"> <%= item.review %></p>
+    
+<% } %>
+</div>
+<% } %>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

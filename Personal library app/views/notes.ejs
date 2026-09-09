@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+
+<% if (locals.content) { %>
+<div class="container">
+
+    <img src="https://covers.openlibrary.org/b/isbn/<%= content.isbn %>-M.jpg">
+
+    <h1><%= content.title %></h1>
+
+    <p>how strongly I recommend it: <%= content.rating %> / 10</p>
+
+    <p>ISBN: <%= content.isbn %></p>
+
+    <p>Date I finished reading: <%= content.date_read %></p>
+
+    <p>See <a href="/">many more books</a></p>
+
+    <div>
+        <p><%= content.review %></p>
+    </div>
+
+    <h2>Summary</h2>
+    <p> <%= content.summary %></p>
+</div>
+<% } %>
