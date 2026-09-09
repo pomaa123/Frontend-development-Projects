@@ -1,0 +1,184 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+body {
+  /* background-color: #854836; */
+   background: #4B2E2B;
+  /* background: linear-gradient(to bottom, #982598, #E491C9) */
+}
+
+.front-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  /* min-height: 100vh; */
+  padding: 60px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  font-family: "Playwrite GB S", cursive;
+  font-size: 3rem;
+  position: absolute;
+  top: 10px;
+  left: 30px;
+
+  color: white;
+  z-index: 1000;
+}
+
+.img-container {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 80px auto 0;
+}
+
+
+.buttons {
+  width: 30%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttons h2 {
+  position: relative;
+  color: black;
+  font-size: 2em;
+  font-family: "Playwrite GB S", cursive;
+  padding-top: 20px;
+}
+
+.buttons p {
+  position: relative;
+  
+}
+
+.buttons Button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* for circular design */
+.center {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} 
+
+.center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  padding: 10px;
+  
+  top: 50%;
+  left: 50%;
+  
+  
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.big-shape {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 42%;
+  height: 100%;
+
+  background: #F5B553;
+
+  /*
+    creates the exact inward/outward curves
+  */
+  border-top-left-radius: 220px 180px;
+  border-bottom-left-radius: 220px 180px;
+}
+
+/* middle inward curve */
+.big-shape::before {
+  content: "";
+
+  position: absolute;
+
+  left: -45px;
+  top: 40%;
+
+  width: 140px;
+  height: 300px;
+
+  /* background: #854836; */
+  background: #4B2E2B;
+
+  border-radius: 100px;
+}
+
+/* top-right inward dip */
+.big-shape::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 42%;
+
+  width: 350px;
+  height: 100px;
+
+  /* background: #854836; */
+   background: #4B2E2B;
+
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+}
+
+
+@media (max-width: 768px) {
+  .front-page {
+    flex-direction: column;
+  }
+
+  .img-container,
+  .buttons {
+    width: 100%;
+    z-index: 2;
+    
+  }
+  .buttons {
+    background-color: #F5B553;
+    position: relative;
+    padding: 80px 20px;
+  }
+
+   .big-shape {
+    width: 0;
+    top: 0;
+    left: 0;
+  } 
+
+  .big-shape::before, .big-shape::after {
+    display: none;
+  }
+}
